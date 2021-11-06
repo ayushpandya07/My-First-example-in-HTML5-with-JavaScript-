@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8';
+<title>Ticket booking</title>
+<script>
+function abcd(frm)
+{
+var n=frm.name.value.trim();
+if(n.length==0)
+{
+alert('Name Required');
+frm.name.focus();
+return false;
+}
+var v='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz .';
+var e;
+e=0;
+while(e<n.length)
+{
+if(v.indexOf(n.charAt(e))==-1)
+{
+alert("Invalid character in name, only alphabet, space and . are allowed");
+frm.name.focus();
+return false;
+}
+e++;
+}
+
+var a=frm.address.value.trim();
+if(a.length==0)
+{
+alert('Address Required');
+frm.address.focus();
+return false;
+}
+
+var l=frm.location.value.trim();
+if(l.length==0)
+{
+alert('Location Required');
+frm.location.focus();
+return false;
+}
+var o='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz .';
+var k=0;
+while(k<l.length)
+{
+if(o.indexOf(l.charAt(k))==-1)
+{
+alert("Invalid character in location, only alphabet, space and . are allowed");
+frm.location.focus();
+return false;
+}
+k++;
+}
+
+var d=frm.destination.value.trim();
+if(d.length==0)
+{
+alert('Destination Required');
+frm.destination.focus();
+return false;
+}
+var q='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz .';
+var i=0;
+while(i<d.length)
+{
+if(q.indexOf(d.charAt(i))==-1)
+{
+alert("Invalid character in destination, only alphabet, space and . are allowed");
+frm.destination.focus();
+return false;
+}
+i++;
+}
+
+var m=frm.mob.value.trim();
+if(m.length==0)
+{
+alert('Mobile Number Required');
+frm.mob.focus();
+return false;
+}
+var y='0123456789';
+var x=0;
+while(x<m.length)
+{
+if(y.indexOf(m.charAt(x))==-1)
+{
+alert("Invalid mobile number, only 0 to 9 numbers are allowed");
+frm.mob.focus();
+return false;
+}
+x++;
+}
+
+var mm=document.getElementById("male");
+var ff=document.getElementById("female");
+if(mm.checked==false && ff.checked==false)
+{
+alert("Select Gender");
+return false;
+}
+
+return true;
+}
+</script>
+</head>
+<body>
+<style>
+body
+{
+background-image: url('train2.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: 100% 100%;
+}
+</style>
+<center>
+<h1>Personal Details</h1>
+<form action='/ap/saveData' onsubmit='return abcd(this)'>
+Name
+<input type='text' id='name' name='name'><br><br>
+Address
+<input type='text' id='address' name='address'><br><br>
+Location
+<input type='text' id='location' name='location'><br><br>
+Destination
+<input type='text' id='destination' name='destination'><br><br>
+Mob no.
+<input type='text' id='mob' name='mob'><br><br>
+Gender
+<input type='radio' id='male' name='gender' value='M'> Male
+&nbsp;&nbsp;
+<input type='radio' id='female' name='gender' value='F'> Female
+&nbsp;&nbsp;
+<input type='radio' id='other' name='gender' value='O'> Other
+<br><br>
+<button type='submit'>Book Ticket</button>
+</form>
+</center>
+</body>
+</html>
